@@ -7,6 +7,7 @@ df = pd.read_csv('nor_pop_2.csv', sep=";")
 df['kommune'] = df['region'].map(lambda x: " ".join(x.split(' ')[1:]))
 
 app = Dash()
+server = app.server
 
 app.layout = [
     html.H1(children='Prosjektert befolkningsvekst i Norske kommuner',
