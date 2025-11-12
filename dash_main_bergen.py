@@ -7,8 +7,6 @@ df = pd.read_csv('nor_pop_2.csv', sep=";")
 df['kommune'] = df['region'].map(lambda x: " ".join(x.split(' ')[1:]))
 
 app = Dash()
-app = Dash(__name__)
-server = app.server  # Expose the WSGI server
 
 app.layout = [
     html.H1(children='Prosjektert befolkningsvekst i Norske kommuner',
@@ -38,4 +36,4 @@ def update_graph(value):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run(debug=True)
